@@ -1,0 +1,72 @@
+{
+    "operations": {
+        "repos.get": {
+            "httpMethod": "GET",
+            "uri": "/repos/{user}/{repo}",
+            "parameters": {
+                "user": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "repos.branch.get": {
+            "httpMethod": "GET",
+            "uri": "/repos/{user}/{repo}/branches/{branch}",
+            "parameters": {
+                "user": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                },
+                "branch": {
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "repos.trees.get": {
+            "httpMethod": "GET",
+            "uri": "/repos/{user}/{repo}/git/trees/{sha}",
+            "parameters": {
+                "user": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                },
+                "sha": {
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "repos.blobs.get": {
+            "httpMethod": "GET",
+            "uri": "/repos/{user}/{repo}/git/blobs/{sha}",
+            "parameters": {
+                "user": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                },
+                "sha": {
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        }
+    }
+}
