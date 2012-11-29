@@ -1,0 +1,20 @@
+{
+    "name": "rvdv/guzzle-clients",
+    "description": "Contains the configuration for multiple APIs in Guzzle.",
+    "homepage": "https://github.com/RobinvdVleuten/guzzle-clients",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Robin van der Vleuten",
+            "email": "robinvdvleuten@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzle/guzzle": "3.0.*"
+    },
+    "autoload": {
+        "psr-0": { "Guzzle": "" }
+    },
+    "target-dir": "Guzzle"
+}

@@ -1,0 +1,28 @@
+{
+    "operations": {
+        "statuses.user_timeline": {
+            "httpMethod": "GET",
+            "uri": "statuses/user_timeline.json",
+            "parameters": {
+                "screen_name": {
+                    "location": "query",
+                    "type": "string",
+                    "required": true
+                },
+                "count": {
+                    "location": "query",
+                    "type": "integer",
+                    "maximum": 200
+                },
+                "exclude_replies": {
+                    "location": "query",
+                    "type": "boolean"
+                },
+                "include_rts": {
+                    "location": "query",
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}
