@@ -20,7 +20,7 @@ class TwitterClient extends Client
             'base_url' => 'https://api.twitter.com/{version}/',
             'version' => '1.1',
         );
-        $required = array('base_url', 'version');
+        $required = array('base_url', 'version', 'consumer_key', 'consumer_secret', 'token', 'token_secret');
         $config = Collection::fromConfig($config, $defaults, $required);
 
         $client = new self($config->get('base_url'), $config);
@@ -30,10 +30,10 @@ class TwitterClient extends Client
         $client->setDescription($description);
 
         $client->addSubscriber(new OauthPlugin(array(
-            'consumer_key'    => '',
-            'consumer_secret' => '',
-            'token'           => '',
-            'token_secret'    => '',
+            'consumer_key'    => $config['consumer_key'],
+            'consumer_secret' => $config['consumer_secret'],
+            'token'           => $config['token'],
+            'token_secret'    => $config['token_secret'],
         )));
 
         return $client;
