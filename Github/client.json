@@ -67,6 +67,21 @@
                     "required": true
                 }
             }
+        },
+        "markdown.raw": {
+            "httpMethod": "POST",
+            "uri": "/markdown/raw",
+            "parameters": {
+                "text": {
+                    "location": "body",
+                    "required": true
+                },
+                "content-type": {
+                    "location": "header",
+                    "required": true,
+                    "default": "text/x-markdown"
+                }
+            }
         }
     }
 }
