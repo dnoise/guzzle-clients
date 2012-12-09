@@ -3,6 +3,9 @@
 namespace Guzzle\Github;
 
 use Guzzle\Common\Collection;
+use Guzzle\Common\Event;
+use Guzzle\Http\Message\RequestInterface;
+use Guzzle\Plugin\CurlAuth\CurlAuthPlugin;
 use Guzzle\Service\Client;
 use Guzzle\Service\Description\ServiceDescription;
 
@@ -17,10 +20,10 @@ class GithubClient extends Client
     {
         $defaults = array(
             // @TODO Auth should be through OAuth.
-            'base_url' => 'https://{username}:{password}@api.github.com',
+            'base_url' => 'https://api.github.com',
         );
 
-        $required = array('username', 'password', 'base_url');
+        $required = array('base_url');
         $config = Collection::fromConfig($config, $defaults, $required);
 
         $client = new self($config->get('base_url'), $config);
@@ -30,5 +33,30 @@ class GithubClient extends Client
         $client->setDescription($description);
 
         return $client;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function createRequest($method = RequestInterface::GET, $uri = null, $headers = null, $body = null)
+    {
+        $request = parent::createRequest($method, $uri, $headers, $body);
+
+        $config = $this->getConfig();
+
+        // Add curl authentication to the request when username and password is set.
+        if ($config->hasKey('username') && $config->hasKey('password')) {
+            $authPlugin = new CurlAuthPlugin($config->get('username'), $config->get('password'));
+            $this->addSubscriber($authPlugin);
+        }
+        // Add client authentication to the query string when the id and secret is set.
+        elseif ($config->hasKey('client_id') && $config->hasKey('client_secret')) {
+            $request->getQuery()
+                ->set('client_id', $config->get('client_id'))
+                ->set('client_secret', $config->get('client_secret'))
+            ;
+        }
+
+        return $request;
     }
 }
