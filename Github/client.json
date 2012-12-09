@@ -47,6 +47,11 @@
                 "sha": {
                     "location": "uri",
                     "required": true
+                },
+                "recursive": {
+                    "location": "query",
+                    "required": false,
+                    "type": "integer"
                 }
             }
         },
