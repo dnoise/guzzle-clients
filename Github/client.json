@@ -1,14 +1,33 @@
 {
     "operations": {
-        "repos.get": {
-            "httpMethod": "GET",
-            "uri": "/repos/{user}/{repo}",
+        "markdown.raw": {
+            "httpMethod": "POST",
+            "uri": "/markdown/raw",
             "parameters": {
-                "user": {
+                "text": {
+                    "location": "body",
+                    "required": true
+                },
+                "content-type": {
+                    "location": "header",
+                    "required": true,
+                    "default": "text/x-markdown"
+                }
+            }
+        },
+        "repos.blobs.get": {
+            "httpMethod": "GET",
+            "uri": "/repos/{owner}/{repo}/git/blobs/{sha}",
+            "parameters": {
+                "owner": {
                     "location": "uri",
                     "required": true
                 },
                 "repo": {
+                    "location": "uri",
+                    "required": true
+                },
+                "sha": {
                     "location": "uri",
                     "required": true
                 }
@@ -16,9 +35,9 @@
         },
         "repos.branch.get": {
             "httpMethod": "GET",
-            "uri": "/repos/{user}/{repo}/branches/{branch}",
+            "uri": "/repos/{owner}/{repo}/branches/{branch}",
             "parameters": {
-                "user": {
+                "owner": {
                     "location": "uri",
                     "required": true
                 },
@@ -32,11 +51,65 @@
                 }
             }
         },
+        "repos.commits.compare": {
+            "httpMethod": "GET",
+            "uri": "/repos/{owner}/{repo}/compare/{base}...{head}",
+            "parameters": {
+                "owner": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                },
+                "base": {
+                    "location": "uri",
+                    "required": true
+                },
+                "head": {
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
+        "repos.content.get": {
+            "httpMethod": "GET",
+            "uri": "/repos/{owner}/{repo}/contents/{path}",
+            "parameters": {
+                "owner": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                },
+                "path": {
+                    "location": "uri",
+                    "required": true
+                },
+            }
+        },
+        "repos.get": {
+            "httpMethod": "GET",
+            "uri": "/repos/{owner}/{repo}",
+            "parameters": {
+                "owner": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
         "repos.trees.get": {
             "httpMethod": "GET",
-            "uri": "/repos/{user}/{repo}/git/trees/{sha}",
+            "uri": "/repos/{owner}/{repo}/git/trees/{sha}",
             "parameters": {
-                "user": {
+                "owner": {
                     "location": "uri",
                     "required": true
                 },
@@ -52,39 +125,6 @@
                     "location": "query",
                     "required": false,
                     "type": "integer"
-                }
-            }
-        },
-        "repos.blobs.get": {
-            "httpMethod": "GET",
-            "uri": "/repos/{user}/{repo}/git/blobs/{sha}",
-            "parameters": {
-                "user": {
-                    "location": "uri",
-                    "required": true
-                },
-                "repo": {
-                    "location": "uri",
-                    "required": true
-                },
-                "sha": {
-                    "location": "uri",
-                    "required": true
-                }
-            }
-        },
-        "markdown.raw": {
-            "httpMethod": "POST",
-            "uri": "/markdown/raw",
-            "parameters": {
-                "text": {
-                    "location": "body",
-                    "required": true
-                },
-                "content-type": {
-                    "location": "header",
-                    "required": true,
-                    "default": "text/x-markdown"
                 }
             }
         }
