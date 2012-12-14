@@ -91,7 +91,7 @@
                 }
             }
         },
-        "repos.content.get": {
+        "repos.contents.get": {
             "httpMethod": "GET",
             "uri": "/repos/{owner}/{repo}/contents/{path}",
             "parameters": {
