@@ -73,6 +73,24 @@
                 }
             }
         },
+        "repos.commits.get": {
+            "httpMethod": "GET",
+            "uri": "/repos/{owner}/{repo}/commits/{sha}",
+            "parameters": {
+                "owner": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                },
+                "sha": {
+                    "location": "uri",
+                    "required": true
+                }
+            }
+        },
         "repos.content.get": {
             "httpMethod": "GET",
             "uri": "/repos/{owner}/{repo}/contents/{path}",
@@ -88,7 +106,7 @@
                 "path": {
                     "location": "uri",
                     "required": true
-                },
+                }
             }
         },
         "repos.get": {
