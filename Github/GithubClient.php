@@ -19,7 +19,6 @@ class GithubClient extends Client
     public static function factory($config = array())
     {
         $defaults = array(
-            // @TODO Auth should be through OAuth.
             'base_url' => 'https://api.github.com',
         );
 

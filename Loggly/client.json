@@ -1,0 +1,24 @@
+{
+    "operations": {
+        "input": {
+            "httpMethod": "POST",
+            "uri": "/inputs/{input_key}",
+            "parameters": {
+                "input_key": {
+                    "location": "uri",
+                    "required": true
+                },
+                "data": {
+                    "location": "body",
+                    "type": "string",
+                    "required": true
+                },
+                "content-type": {
+                    "location": "header",
+                    "required": true,
+                    "default": "application/json"
+                }
+            }
+        }
+    }
+}
