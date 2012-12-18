@@ -11,10 +11,15 @@
         }
     ],
     "require": {
-        "guzzle/guzzle": "3.0.*"
+        "guzzle/guzzle": "3.0.*@dev"
     },
     "autoload": {
         "psr-0": { "Guzzle": "" }
     },
-    "target-dir": "Guzzle"
+    "target-dir": "Guzzle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
 }
