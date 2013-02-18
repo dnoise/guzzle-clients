@@ -1,0 +1,34 @@
+{
+    "operations": {
+        "posts.get": {
+            "httpMethod": "GET",
+            "uri": "posts/get",
+            "parameters": {
+            }
+        },
+        "posts.all": {
+            "httpMethod": "GET",
+            "uri": "posts/all",
+            "parameters": {
+                "start": {
+                   "type": "integer",
+                   "description": "Start returning posts this many results into the set.",
+                   "location": "query"
+                },
+                "results": {
+                    "type": "integer",
+                    "description": "Return this many results.",
+                    "location": "query"
+                },
+                "meta": {
+                    "type": "string",
+                    "description": "Include change detection signatures on each item in a 'meta' attribute.",
+                    "location": "query",
+                    "enum": [
+                        "yes"
+                    ]
+                }
+            }
+        }
+    }
+}
