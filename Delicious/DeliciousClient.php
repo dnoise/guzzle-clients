@@ -30,22 +30,12 @@ class DeliciousClient extends Client
         $description = ServiceDescription::factory(__DIR__ . '/client.json');
         $client->setDescription($description);
 
-        return $client;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function createRequest($method = RequestInterface::GET, $uri = null, $headers = null, $body = null)
-    {
-        $config = $this->getConfig();
-
         // Add curl authentication to the request when username and password is set.
         if ($config->hasKey('username') && $config->hasKey('password')) {
             $authPlugin = new CurlAuthPlugin($config->get('username'), $config->get('password'));
-            $this->addSubscriber($authPlugin);
+            $client->addSubscriber($authPlugin);
         }
 
-        return parent::createRequest($method, $uri, $headers, $body);
+        return $client;
     }
 }
