@@ -35,9 +35,9 @@ class GithubClient extends Client
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
-    public function createRequest($method = RequestInterface::GET, $uri = null, $headers = null, $body = null)
+    public function createRequest($method = RequestInterface::GET, $uri = null, $headers = null, $body = null, array $options = array())
     {
         $request = parent::createRequest($method, $uri, $headers, $body);
 
