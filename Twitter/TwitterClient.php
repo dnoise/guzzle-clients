@@ -1,6 +1,6 @@
 <?php
 
-namespace Guzzle\Twitter;
+namespace Rvdv\Guzzle\Twitter;
 
 use Guzzle\Common\Collection;
 use Guzzle\Plugin\Oauth\OauthPlugin;

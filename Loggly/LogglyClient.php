@@ -1,6 +1,6 @@
 <?php
 
-namespace Guzzle\Loggly;
+namespace Rvdv\Guzzle\Loggly;
 
 use Guzzle\Common\Collection;
 use Guzzle\Service\Client;

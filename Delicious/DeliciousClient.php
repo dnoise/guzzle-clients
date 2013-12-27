@@ -1,6 +1,6 @@
 <?php
 
-namespace Guzzle\Delicious;
+namespace Rvdv\Guzzle\Delicious;
 
 use Guzzle\Common\Collection;
 use Guzzle\Common\Event;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Guzzle\Github;
+namespace Rvdv\Guzzle\Github;
 
 use Guzzle\Common\Collection;
 use Guzzle\Common\Event;
