@@ -18,12 +18,7 @@ class GithubClient extends Client
 {
     public static function factory($config = array())
     {
-        $defaults = array(
-            'base_url' => 'https://api.github.com',
-        );
-
-        $required = array('base_url');
-        $config = Collection::fromConfig($config, $defaults, $required);
+        $config = Collection::fromConfig($config, array(), array());
 
         $client = new self($config->get('base_url'), $config);
 
@@ -39,7 +34,7 @@ class GithubClient extends Client
      */
     public function createRequest($method = RequestInterface::GET, $uri = null, $headers = null, $body = null, array $options = array())
     {
-        $request = parent::createRequest($method, $uri, $headers, $body);
+        $request = parent::createRequest($method, $uri, $headers, $body, $options);
 
         $config = $this->getConfig();
 

@@ -1,4 +1,5 @@
 {
+    "baseUrl": "https://api.github.com",
     "operations": {
         "markdown.raw": {
             "httpMethod": "POST",
@@ -91,6 +92,36 @@
                 }
             }
         },
+        "repos.contents.create": {
+            "httpMethod": "PUT",
+            "uri": "/repos/{owner}/{repo}/contents/{path}",
+            "parameters": {
+                "owner": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                },
+                "path": {
+                    "location": "uri",
+                    "required": true
+                },
+                "message": {
+                    "location": "json",
+                    "required": true
+                },
+                "content": {
+                    "location": "json",
+                    "required": true
+                },
+                "branch": {
+                    "location": "json",
+                    "required": false
+                }
+            }
+        },
         "repos.contents.get": {
             "httpMethod": "GET",
             "uri": "/repos/{owner}/{repo}/contents/{path}",
@@ -105,6 +136,40 @@
                 },
                 "path": {
                     "location": "uri",
+                    "required": false
+                }
+            }
+        },
+        "repos.contents.update": {
+            "httpMethod": "PUT",
+            "uri": "/repos/{owner}/{repo}/contents/{path}",
+            "parameters": {
+                "owner": {
+                    "location": "uri",
+                    "required": true
+                },
+                "repo": {
+                    "location": "uri",
+                    "required": true
+                },
+                "path": {
+                    "location": "uri",
+                    "required": true
+                },
+                "message": {
+                    "location": "json",
+                    "required": true
+                },
+                "content": {
+                    "location": "json",
+                    "required": true
+                },
+                "sha": {
+                    "location": "json",
+                    "required": true
+                },
+                "branch": {
+                    "location": "json",
                     "required": false
                 }
             }
